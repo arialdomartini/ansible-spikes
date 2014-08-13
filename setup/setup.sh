@@ -1,1 +1,1 @@
-ansible --inventory-file=inventory prod -a "uname" 
+ansible-playbook --inventory-file=inventory server.yml

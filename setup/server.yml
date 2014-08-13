@@ -1,0 +1,9 @@
+---
+- hosts: prod
+  user: root
+  sudo: no
+  gather_facts: no
+
+  tasks:
+  - name: deb package list is up-to-date
+    command: apt-get update
