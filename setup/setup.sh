@@ -1,0 +1,1 @@
+ansible --inventory-file=inventory prod -a "uname" 
