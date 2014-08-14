@@ -1,0 +1,23 @@
+---
+- hosts: prod
+  sudo: no
+  gather_facts: no
+
+  vars:
+    virtualenv: ~/hushhush-env
+
+
+
+  tasks:
+    - name: Create a temporary build directory
+      command: mktemp -d
+      register: build_dir
+      tags: build
+
+    - name: Current build directory
+      debug: msg="Temporary build directory {{ build_dir.stdout }}"
+      tags: build
+
+    - name: clean up the temporary build directory
+      file: name={{ build_dir.stdout }} state=absent
+      tags: build
