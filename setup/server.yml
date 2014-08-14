@@ -10,6 +10,6 @@
     tags: base-software
 
   - name: python3 is installed
-    command: apt-get -y --force-yes install python3
+    apt: name=python3 state=present
     tags: base-software
 
