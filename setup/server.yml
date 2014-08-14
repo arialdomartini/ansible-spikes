@@ -7,3 +7,9 @@
   tasks:
   - name: deb package list is up-to-date
     command: apt-get update
+    tags: base-software
+
+  - name: python3 is installed
+    command: apt-get -y --force-yes install python3
+    tags: base-software
+
