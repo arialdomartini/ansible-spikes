@@ -5,8 +5,8 @@
 
   vars:
     virtualenv: ~/hushhush-env
-
-
+    repository: https://github.com/arialdomartini/hushhush.git
+    projectname: hushhush
 
   tasks:
     - name: Create a temporary build directory
@@ -16,6 +16,10 @@
 
     - name: Current build directory
       debug: msg="Temporary build directory {{ build_dir.stdout }}"
+      tags: build
+
+    - name: Clones the repository
+      git: repo={{ repository }} dest="{{ build_dir.stdout }}/{{projectname}}"
       tags: build
 
     - name: clean up the temporary build directory

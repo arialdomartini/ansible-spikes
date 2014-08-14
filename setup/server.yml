@@ -13,3 +13,7 @@
     apt: name=python3 state=present
     tags: base-software
 
+  - name: git is installed
+    apt: name=git state=present force=yes
+    tags: base-software
+
