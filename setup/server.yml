@@ -6,7 +6,7 @@
 
   tasks:
   - name: deb package list is up-to-date
-    command: apt-get update
+    apt: update_cache=yes
     tags: base-software
 
   - name: python3 is installed
