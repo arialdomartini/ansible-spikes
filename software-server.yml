@@ -1,0 +1,31 @@
+---
+- hosts: prod
+  sudo: yes
+  accelerate: false
+  gather_facts: no
+  vars:
+  - ssh_user: $ENV(USER)
+
+  tasks:
+  - name: #software | apache is stopped
+    service: name=apache2 state=stopped
+    tags: software
+
+  - name: #software | apache2 is not installed
+    apt: pkg=apache2 state=absent
+    tags: software
+
+  - name: #software | git is installed
+    apt: pkg=git state=present
+    tags: software
+
+  - name: #builderusers | The user "builder" exists
+    user: name=builder state=present shell=/bin/bash
+    tags: builderusers
+
+  - name: the var/hushhush directory is present
+    file: path=/home/arialdomartini/var/domidoo/log owner=arialdomartini group=arialdomartini mode=0644 state=directory
+    tags: filesystem
+
+  - name: the var/domidoo/images directory is present
+    file: path=/home/arialdomartini/var/domidoo/images owner=arialdomartini group=arialdomartini mode=0644 state=directory

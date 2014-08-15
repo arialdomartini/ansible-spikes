@@ -1,4 +1,4 @@
-hushhush
-========
+Setup
+=====
 
-Pssst, I'll tell you something...
+Setup scripts need [Ansible](http://www.ansible.com/).
